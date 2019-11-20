@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 /**
  * Created by Sumeet Jain on 23-06-2018.
@@ -24,12 +25,20 @@ public class splash extends AppCompatActivity {
 
     private ImageView logo;
     private static int splashTimeOut=5000;
+    private ProgressBar spinner;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         logo=(ImageView)findViewById(R.id.logo);
+        spinner = new android.widget.ProgressBar(
+                this,
+                null,
+                android.R.attr.progressBarStyle);
+
+        spinner.getIndeterminateDrawable().setColorFilter(0xFFFF0000, android.graphics.PorterDuff.Mode.MULTIPLY);
 
         new Handler().postDelayed(new Runnable() {
             @Override
