@@ -6,17 +6,17 @@
         <item
             android:id="@+id/navigation_before"
             android:icon="@drawable/before"
-            android:title="Songs"/>
+            android:title="Accueil"/>
 
         <item
             android:id="@+id/navigation_decode"
             android:icon="@drawable/decode"
-            android:title="Albums"/>
+            android:title="Decoder"/>
 
         <item
             android:id="@+id/navigation_settings"
             android:icon="@drawable/settings"
-            android:title="Artists"/>
+            android:title="Paramètres"/>
 
     </menu>
 

@@ -47,9 +47,11 @@ public class firstactivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), decodeactivitytwo.class);
              //   intent.putExtra("code1", airport1);
-                intent.putExtra("code2", airport2);
+                intent.putExtra("airport1", airport1);
 
-                intent.putExtra("code3", airport3);
+                intent.putExtra("airport2", airport2);
+
+                intent.putExtra("airport3", airport3);
 
                 startActivity(intent);
             }

@@ -35,6 +35,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class decodeactivitytwo extends AppCompatActivity {
+    String air1,air2,air3;
 
     ViewPager viewPager;
     private int dotscount;
@@ -56,6 +57,14 @@ public class decodeactivitytwo extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewpager);
 
         //sliderDotspanel = (LinearLayout) findViewById(R.id.dots);
+
+        air1 = getIntent().getStringExtra("airport1");
+        air2 = getIntent().getStringExtra("airport2");
+
+        air3 = getIntent().getStringExtra("airport3");
+
+
+
 
         new JsonTask().execute();
        // adddots();
@@ -118,10 +127,10 @@ public class decodeactivitytwo extends AppCompatActivity {
 
         @Override
         protected List<String> doInBackground(Void... params) {
-            String str1 = "https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/states/notams/notams-realtime-list?api_key=a59eaf50-0b79-11ea-801d-6bf2a3d2c158&format=json&criticality=&locations=";
+            String str1 = "https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/states/notams/notams-realtime-list?api_key=a59eaf50-0b79-11ea-801d-6bf2a3d2c158&format=json&criticality=&locations=ENBO";
             List<String> listurl = new ArrayList<>();
-            String str2 = "https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/states/notams/notams-realtime-list?api_key=a59eaf50-0b79-11ea-801d-6bf2a3d2c158&format=json&criticality=&locations=ENBO";
-            String str3 = "https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/states/notams/notams-realtime-list?api_key=a59eaf50-0b79-11ea-801d-6bf2a3d2c158&format=json&criticality=&locations=KJFK";
+            String str2 = "https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/states/notams/notams-realtime-list?api_key=a59eaf50-0b79-11ea-801d-6bf2a3d2c158&format=json&criticality=&locations=ENBR";
+            String str3 = "https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/states/notams/notams-realtime-list?api_key=a59eaf50-0b79-11ea-801d-6bf2a3d2c158&format=json&criticality=&locations=ENBR";
             String url1 = urlbuild(str1);
             String url2 = urlbuild(str2);
             String url3 = urlbuild(str3);
