@@ -15,19 +15,20 @@
         <activity
             android:name=".splash"
             android:label="@string/title_activity_splash"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".testactivity">
+            android:theme="@style/AppTheme.NoActionBar">
 
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+        <activity android:name=".testactivity"></activity>
         <activity android:name=".decodeActivity" />
         <activity android:name=".decodeactivitytwo">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+        <activity android:name=".firstactivity"></activity>
     </application>
 
 </manifest>
