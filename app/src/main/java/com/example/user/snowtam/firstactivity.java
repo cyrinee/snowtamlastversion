@@ -4,6 +4,7 @@ package com.example.user.snowtam;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +15,7 @@ public class firstactivity extends AppCompatActivity {
 
     private Button button;
     String airport1,airport2,airport3;
-
+    EditText Ai,DT,RN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +26,13 @@ public class firstactivity extends AppCompatActivity {
 
 
 
-       // EditText Ai= findViewById(R.id.text_view1);
-        EditText DT= findViewById(R.id.text_view2);
-        EditText RN= findViewById(R.id.text_view3);
+        Ai= (EditText)findViewById(R.id.text_view1);
+         DT= (EditText)findViewById(R.id.text_view2);
+         RN= (EditText)findViewById(R.id.text_view3);
 
 
 
-      //  airport1 = Ai.getText().toString();
+      airport1 = Ai.getText().toString();
         airport2 = DT.getText().toString();
         airport3 = RN.getText().toString();
        /* Ai.setText(" "+aireport);
@@ -47,11 +48,13 @@ public class firstactivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), decodeactivitytwo.class);
              //   intent.putExtra("code1", airport1);
-                intent.putExtra("airport1", airport1);
+                intent.putExtra("airport1", Ai.getText().toString());
 
-                intent.putExtra("airport2", airport2);
+                intent.putExtra("airport2", DT.getText().toString());
 
-                intent.putExtra("airport3", airport3);
+                intent.putExtra("airport3", RN.getText().toString());
+               // Log.e("App", "helooooooooooooooooooo: " + airport1 );
+
 
                 startActivity(intent);
             }

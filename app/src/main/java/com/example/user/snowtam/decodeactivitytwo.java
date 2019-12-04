@@ -127,11 +127,16 @@ public class decodeactivitytwo extends AppCompatActivity {
 
         @Override
         protected List<String> doInBackground(Void... params) {
-            String str1 = "https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/states/notams/notams-realtime-list?api_key=a59eaf50-0b79-11ea-801d-6bf2a3d2c158&format=json&criticality=&locations=ENBO";
-            List<String> listurl = new ArrayList<>();
-            String str2 = "https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/states/notams/notams-realtime-list?api_key=a59eaf50-0b79-11ea-801d-6bf2a3d2c158&format=json&criticality=&locations=ENBR";
-            String str3 = "https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/states/notams/notams-realtime-list?api_key=a59eaf50-0b79-11ea-801d-6bf2a3d2c158&format=json&criticality=&locations=ENBR";
+            String str1 = "https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/states/notams/notams-realtime-list?api_key=a59eaf50-0b79-11ea-801d-6bf2a3d2c158&format=json&criticality=&locations="+air1;
+            String str2 = "https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/states/notams/notams-realtime-list?api_key=a59eaf50-0b79-11ea-801d-6bf2a3d2c158&format=json&criticality=&locations="+air2;
+            String str3 = "https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/states/notams/notams-realtime-list?api_key=a59eaf50-0b79-11ea-801d-6bf2a3d2c158&format=json&criticality=&locations="+air3;
             String url1 = urlbuild(str1);
+            // Log.e("App", "Sucecodecessssssssssssssssssssssssss: " + str1 );
+           // Log.e("App", "Sucecodecessssssssssssssssssssssfdgdhdfhssss: " + air1 );
+
+
+            List<String> listurl = new ArrayList<>();
+
             String url2 = urlbuild(str2);
             String url3 = urlbuild(str3);
             listurl.add(url1);

@@ -40,7 +40,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_weight=".60"
-                    android:text="Airport 1" />
+                    android:text="Airport 1"
+                    android:textColor="#fff"/>
 
 
                 <EditText
@@ -65,7 +66,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_weight=".60"
-                    android:text="Airport 1" />
+                    android:text="Airport 1"
+                    android:textColor="#fff"/>
 
 
                 <EditText
@@ -91,7 +93,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_weight=".60"
-                    android:text="Airport 1" />
+                    android:text="Airport 1"
+                    android:textColor="#fff"/>
 
 
                 <EditText
