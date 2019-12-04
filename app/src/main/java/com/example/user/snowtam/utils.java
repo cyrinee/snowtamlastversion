@@ -1,4 +1,4 @@
-package com.example.user.snowtam;
+/*package com.example.user.snowtam;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -54,4 +54,4 @@ public class Utils {
         }
         return json;
     }
-}
+}*/
