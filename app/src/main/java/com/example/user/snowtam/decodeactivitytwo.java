@@ -1,5 +1,6 @@
 package com.example.user.snowtam;
 
+import android.content.Intent;
 import android.net.http.RequestQueue;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
@@ -13,7 +14,9 @@ import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -46,7 +49,7 @@ public class decodeactivitytwo extends AppCompatActivity {
     SliderAdapter viewPagerAdapter;
     private ActionBar toolbar;
 
-
+Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,22 +63,26 @@ public class decodeactivitytwo extends AppCompatActivity {
 
         air1 = getIntent().getStringExtra("airport1");
         air2 = getIntent().getStringExtra("airport2");
-
         air3 = getIntent().getStringExtra("airport3");
-
-
-
-
         new JsonTask().execute();
        // adddots();
         sliderDotspanel = (LinearLayout) findViewById(R.id.SliderDots);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+       /* button = (Button) findViewById(R.id.button_maps);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                Intent intent = new Intent(getApplicationContext(), decodagesnowtam.class);
+                //   intent.putExtra("code1", airport1);
+                intent.putExtra("airport1", air1);
+                startActivity(intent);
+            }
+        });
+*/
+            }
 
-
-
-    }
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -84,14 +91,17 @@ public class decodeactivitytwo extends AppCompatActivity {
             Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.navigation_before:
-                    toolbar.setTitle("before");
+                    Intent a = new Intent(decodeactivitytwo.this,firstactivity.class);
+                    startActivity(a);
                     return true;
 
                 case R.id.navigation_decode:
-                    toolbar.setTitle("Decode");
+                    Intent aa = new Intent(decodeactivitytwo.this,decodagesnowtam.class);
+                    aa.putExtra("airport1", air1);
+
+                    startActivity(aa);
                     return true;
                 case R.id.navigation_settings:
-                    toolbar.setTitle("settings");
                     return true;
             }
             return false;
