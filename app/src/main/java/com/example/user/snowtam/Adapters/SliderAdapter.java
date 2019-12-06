@@ -88,6 +88,11 @@ return view==(RelativeLayout) o;    }
         View view = layoutInflater.inflate(R.layout.slide_layout, container, false);
         ImageView avion = (ImageView) view.findViewById(R.id.avionImageView);
         TextView a = (TextView) view.findViewById(R.id.text);
+
+
+
+
+
         a.setMovementMethod(new ScrollingMovementMethod());
        // avion.setImageResource(slide_images[position]);
 

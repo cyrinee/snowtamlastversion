@@ -6,17 +6,17 @@
         <item
             android:id="@+id/navigation_before"
             android:icon="@drawable/before"
-            android:title="Accueil"/>
+            android:title="@string/Home"/>
 
         <item
             android:id="@+id/navigation_decode"
             android:icon="@drawable/decode"
-            android:title="Decoder"/>
+            android:title="@string/Maps"/>
 
         <item
             android:id="@+id/navigation_settings"
             android:icon="@drawable/settings"
-            android:title="Paramètres"/>
+            android:title="@string/Language"/>
 
     </menu>
 

@@ -16,11 +16,18 @@ public class firstactivity extends AppCompatActivity {
     private Button button;
     String airport1,airport2,airport3;
     EditText Ai,DT,RN;
+    private EditText mEditTestnumber1;
+    private EditText mEditTestnumber2;
+    private EditText mEditTestnumber3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firstactivity);
+
+
+
 
         //setTitle("Activity 2");
 
@@ -32,7 +39,7 @@ public class firstactivity extends AppCompatActivity {
 
 
 
-      airport1 = Ai.getText().toString();
+        airport1 = Ai.getText().toString();
         airport2 = DT.getText().toString();
         airport3 = RN.getText().toString();
        /* Ai.setText(" "+aireport);
@@ -46,8 +53,21 @@ public class firstactivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
+
                 Intent intent = new Intent(getApplicationContext(), decodeactivitytwo.class);
+
+                Intent intentMaps = new Intent(getApplicationContext(), Maps.class);
              //   intent.putExtra("code1", airport1);
+
+
+                intentMaps.putExtra("airport1", Ai.getText().toString());
+
+                intentMaps.putExtra("airport2", DT.getText().toString());
+
+                intentMaps.putExtra("airport3", RN.getText().toString());
+
+
                 intent.putExtra("airport1", Ai.getText().toString());
 
                 intent.putExtra("airport2", DT.getText().toString());
@@ -56,7 +76,8 @@ public class firstactivity extends AppCompatActivity {
                // Log.e("App", "helooooooooooooooooooo: " + airport1 );
 
 
-                startActivity(intent);
+                //startActivity(intent);
+                startActivity(intentMaps);
             }
         });
     }

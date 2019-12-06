@@ -64,6 +64,7 @@ Button button;
         air1 = getIntent().getStringExtra("airport1");
         air2 = getIntent().getStringExtra("airport2");
         air3 = getIntent().getStringExtra("airport3");
+
         new JsonTask().execute();
        // adddots();
         sliderDotspanel = (LinearLayout) findViewById(R.id.SliderDots);
@@ -96,7 +97,7 @@ Button button;
                     return true;
 
                 case R.id.navigation_decode:
-                    Intent aa = new Intent(decodeactivitytwo.this,decodagesnowtam.class);
+                    Intent aa = new Intent(decodeactivitytwo.this,Maps.class);
                     aa.putExtra("airport1", air1);
 
                     startActivity(aa);
@@ -259,7 +260,7 @@ Button button;
 
             }
         }
-                dotscount = viewPagerAdapter.getCount();
+                /*dotscount = viewPagerAdapter.getCount();
                 dots = new ImageView[dotscount];
                 for(int f = 0; f < 3; f++){
 
@@ -297,7 +298,7 @@ Button button;
                     public void onPageScrollStateChanged(int state) {
 
                     }
-                });
+                });*/
 
               //  viewPager.setAdapter(viewPagerAdapter);
 

@@ -24,10 +24,9 @@
         </activity>
         <activity android:name=".testactivity" />
         <activity android:name=".decodeActivity" />
-        <activity android:name=".decodeactivitytwo" />
+        <activity android:name=".decodeactivitytwo"></activity>
         <activity android:name=".firstactivity" />
-        <activity android:name=".decodagesnowtam" />
-        <activity android:name=".MapsOrientation"></activity>
+        <activity android:name=".decodagesnowtam"></activity>
     </application>
 
 </manifest>
