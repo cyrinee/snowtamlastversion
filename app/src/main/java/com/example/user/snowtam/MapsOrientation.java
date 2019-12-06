@@ -5,6 +5,7 @@ import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -22,15 +23,28 @@ public class MapsOrientation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps_orientation);
-        code = getIntent().getStringExtra("airport");
+       TextView tv = (TextView) findViewById(R.id.text);
+        code = getIntent().getStringExtra("airport1");
+        tv.setText(code);
+
+
+
+       // code = getIntent().getStringExtra("airport");
             icao = getcode(code);
-             try {
+        Log.e("App", "decodagesnowtam" + icao );
+
+
+        try {
             lon=loadlongitude(this, icao);
+            Log.e("App", "lon" + lon );
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
         try {
             latt=loadlattitude(this, icao);
+            Log.e("App", "lo" + latt );
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

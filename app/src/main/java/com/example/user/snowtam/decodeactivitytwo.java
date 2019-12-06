@@ -1,11 +1,9 @@
 package com.example.user.snowtam;
 
 import android.content.Intent;
-import android.net.http.RequestQueue;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -13,13 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.user.snowtam.Adapters.SliderAdapter;
@@ -46,6 +42,7 @@ public class decodeactivitytwo extends AppCompatActivity {
     private TextView[] dotss;
     LinearLayout sliderDotspanel;
     List<snowtam> snowtamList;
+    List<String> ll;
     SliderAdapter viewPagerAdapter;
     private ActionBar toolbar;
 
@@ -64,76 +61,22 @@ Button button;
         air1 = getIntent().getStringExtra("airport1");
         air2 = getIntent().getStringExtra("airport2");
         air3 = getIntent().getStringExtra("airport3");
+//        ll.add(air1);
+      //  ll.add(air2);
+        //ll.add(air3);
 
-        new JsonTask().execute();
-       // adddots();
+
+new JsonTask().execute();
+        // adddots();
+
         sliderDotspanel = (LinearLayout) findViewById(R.id.SliderDots);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-       /* button = (Button) findViewById(R.id.button_maps);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(getApplicationContext(), decodagesnowtam.class);
-                //   intent.putExtra("code1", airport1);
-                intent.putExtra("airport1", air1);
-                startActivity(intent);
-            }
-        });
+        /*Menu menu = navigation.getMenu();
+        MenuItem menuItem = menu.getItem(1);
+        menuItem.setChecked(true);
 */
-            }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment fragment;
-            switch (item.getItemId()) {
-                case R.id.navigation_before:
-                    Intent a = new Intent(decodeactivitytwo.this,firstactivity.class);
-                    startActivity(a);
-                    return true;
-
-                case R.id.navigation_decode:
-                    Intent aa = new Intent(decodeactivitytwo.this,Maps.class);
-                    aa.putExtra("airport1", air1);
-
-                    startActivity(aa);
-                    return true;
-                case R.id.navigation_settings:
-                    return true;
-            }
-            return false;
-        }
-    };
-
-
-    /* viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-         @Override
-         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-         }
-
-        // @Override
-        /* public void onPageSelected(int position) {
-
-             for(int i = 0; i< dotscount; i++){
-                 dots[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nonactive_dot));
-             }
-
-             dots[position].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.active_dot));
-
-         }
-
-         @Override
-         public void onPageScrollStateChanged(int state) {
-
-         }
-     });
-
- }*/
+       // Log.e("App", "aa: " + viewPagerAdapter.getItemPosition(0));
+    }
     private class JsonTask extends AsyncTask<Void, Void, List<String>> {
 
         @Override
@@ -160,7 +103,7 @@ Button button;
         @Override
         protected void onPostExecute(List<String> response) {
             //parse the JSON data and then display
-            parseJSON(response);
+       parseJSON(response);
         }
     }
 
@@ -222,7 +165,7 @@ Button button;
         while (m.find()) {
             System.out.println(m.group(1));
         }}
-    private void parseJSON(List<String> data) {
+    private List<snowtam> parseJSON(List<String> data) {
         int k = data.size();
         for (int jj = 0; jj < k; jj++) {
             boolean ss;
@@ -255,12 +198,38 @@ Button button;
 
                 viewPagerAdapter = new SliderAdapter(snowtamList, decodeactivitytwo.this);
                 viewPager.setAdapter(viewPagerAdapter);
+
             } catch (Exception e) {
                 Log.i("App", "Error parsing data" + e.getMessage());
 
             }
         }
-                /*dotscount = viewPagerAdapter.getCount();
+
+      /*  BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_before:
+                        Intent a = new Intent(decodeactivitytwo.this, firstactivity.class);
+                        startActivity(a);
+                        return true;
+
+                    case R.id.navigation_decode:
+                        Intent aa = new Intent(decodeactivitytwo.this, MapsOrientation.class);
+                        aa.putExtra("airport1",snowtamList.get(0).getName());
+
+                        startActivity(aa);
+                        return true;
+                    case R.id.navigation_settings:
+                        return true;
+                }
+                return false;
+            }
+        });*/
+                dotscount = viewPagerAdapter.getCount();
                 dots = new ImageView[dotscount];
                 for(int f = 0; f < 3; f++){
 
@@ -298,7 +267,7 @@ Button button;
                     public void onPageScrollStateChanged(int state) {
 
                     }
-                });*/
+                });
 
               //  viewPager.setAdapter(viewPagerAdapter);
 
@@ -320,7 +289,7 @@ Button button;
                 // dots[0].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.active_dot));
 
 
-
+return snowtamList;
     }
 }
 

@@ -26,6 +26,8 @@
         <activity android:name=".decodeActivity" />
         <activity android:name=".decodeactivitytwo"></activity>
         <activity android:name=".firstactivity" />
+        <activity android:name=".MapsOrientation" />
+
         <activity android:name=".decodagesnowtam"></activity>
     </application>
 

@@ -76,8 +76,8 @@ public class firstactivity extends AppCompatActivity {
                // Log.e("App", "helooooooooooooooooooo: " + airport1 );
 
 
-                //startActivity(intent);
-                startActivity(intentMaps);
+                startActivity(intent);
+              //  startActivity(intentMaps);
             }
         });
     }

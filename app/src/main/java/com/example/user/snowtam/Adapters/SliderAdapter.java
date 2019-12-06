@@ -52,16 +52,30 @@ public class SliderAdapter extends PagerAdapter {
 return 3;    }
 
     @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
+    public boolean isViewFromObject(@NonNull final View view, @NonNull final Object o) {
+
+
+
 return view==(RelativeLayout) o;    }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, final int position) {
         final snowtam snowtamm = listsnowtam.get(position);
+        layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        View view = layoutInflater.inflate(R.layout.slide_layout, container, false);
+        ImageView avion = (ImageView) view.findViewById(R.id.avionImageView);
+        TextView a = (TextView) view.findViewById(R.id.text);
 
-        BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-                = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        a.setMovementMethod(new ScrollingMovementMethod());
+       // avion.setImageResource(slide_images[position]);
+         if (snowtamm.getName()==null){
+             a.setText("No data available");
+         }else{
+
+            a.setText(snowtamm.getName());}
+        BottomNavigationView navigation = (BottomNavigationView) view.findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -74,7 +88,7 @@ return view==(RelativeLayout) o;    }
                     case R.id.navigation_decode:
                         Intent intent = new Intent(context,MapsOrientation.class);
                         //   intent.putExtra("code1", airport1);
-                        intent.putExtra("airport", snowtamm.getName());
+                        intent.putExtra("airport1", snowtamm.getName());
                         context.startActivity(intent);
                         return true;
                     case R.id.navigation_settings:
@@ -82,32 +96,12 @@ return view==(RelativeLayout) o;    }
                 }
                 return false;
             }
-        };
-
-        layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.slide_layout, container, false);
-        ImageView avion = (ImageView) view.findViewById(R.id.avionImageView);
-        TextView a = (TextView) view.findViewById(R.id.text);
-
-
-
-
-
-        a.setMovementMethod(new ScrollingMovementMethod());
-       // avion.setImageResource(slide_images[position]);
-
-         if (snowtamm.getName()==null){
-             a.setText("No data available");
-         }else{
-
-            a.setText(snowtamm.getName());}
+        });
         container.addView(view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent( view.getContext(),decodagesnowtam.class);
-                //   intent.putExtra("code1", airport1);
                 intent.putExtra("airport", snowtamm.getName());
                 context.startActivity(intent);
             }
