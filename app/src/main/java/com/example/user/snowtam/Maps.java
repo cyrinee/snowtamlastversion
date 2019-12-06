@@ -47,7 +47,7 @@ public class Maps extends AppCompatActivity {
             JSONArray jsonArray = new JSONArray(json);
 
             for(int i=0; i<jsonArray.length();i++){
-                JSONObject obj
+
             }
 
 
