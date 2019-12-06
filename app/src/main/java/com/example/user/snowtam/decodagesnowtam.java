@@ -35,7 +35,7 @@ TextView tv;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_decodagesnowtam);
-        TextView tv = (TextView) findViewById(R.id.text);
+         tv = (TextView) findViewById(R.id.text);
 
         code = getIntent().getStringExtra("airport");
         if(code!=null) {
@@ -44,7 +44,7 @@ TextView tv;
             runaway=getranaway(code);
             try {
                  date2=parsedate(date);
-                Log.e("App", "date " + date2 );
+               // Log.e("App", "date " + date2 );
 
             } catch (ParseException e) {
                 e.printStackTrace();
@@ -52,15 +52,15 @@ TextView tv;
         }
         try {
              code2=loadairport(this,icao);
-           // Log.e("App", "hyhyhy " + code );
+           // Log.e("App", "hyhyhy " + code2 );
 
-           // Log.e("App", "hh " + icao );
+          // Log.e("App", "icao " + icao );
            // Log.e("App", "alo " + code2 );
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        tv.setText(code2);
+        tv.setText(code2+ "\n");
         tv.append(date2 + "\n");
         tv.append(runaway);
 
@@ -87,41 +87,35 @@ TextView tv;
             index3=cc.indexOf("C)");
             bb=cc.substring(index2+2,index3);
             //a.setText(snowtamm.getName());
-
-            Log.e("App", "aa:" + bb );}
+           // Log.e("App", "aa:" + bb );
+        }
         return bb;
-
-
 
     }
 
-
-
     public static String loadairport(Context context,String code) throws JSONException {
        String airport=" " ;
-       String a= "A :";
             GsonBuilder builder = new GsonBuilder();
        // Log.e("App", "Sucecodecessssssssssssssssssssssssss:" + code );
-
         Gson gson = builder.create();
             JSONArray array = new JSONArray(loadJSONFromAsset(context, "airport.json"));
-            
             for(int i=0;i<array.length();i++) {
                 JSONObject jsonObject = array.getJSONObject(i);
                 String codee = jsonObject.getString("ICAO");
               // Log.e("App", "decodagesnowtam" + codee );
-
-
-                if (code.equals(codee)) {
+               // Log.e("Avfffffffffffpp", "code" + code );
+                if (code.compareTo(codee) == 0) {
                      airport = jsonObject.getString("Name");
-                   Log.e("App", "hiiii: " + airport );
+                   //Log.e("App", "hiiii: " + airport );
                 }
+                System.out.println("hellooooooo"+ code.equals(codee));
+
 
             }
         StringBuilder sb = new StringBuilder("A. ");
 
         sb.append(code );
-        sb.append( airport);
+        sb.append(" " +airport);
         String str = sb.toString();
             
             return str;

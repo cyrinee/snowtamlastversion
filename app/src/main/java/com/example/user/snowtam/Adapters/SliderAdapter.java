@@ -3,10 +3,13 @@ package com.example.user.snowtam.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,6 +19,8 @@ import android.widget.TextView;
 
 import com.example.user.snowtam.R;
 import com.example.user.snowtam.decodagesnowtam;
+import com.example.user.snowtam.decodeactivitytwo;
+import com.example.user.snowtam.firstactivity;
 import com.example.user.snowtam.snowtam;
 
 import java.util.List;
@@ -52,6 +57,32 @@ return view==(RelativeLayout) o;    }
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, final int position) {
+        final snowtam snowtamm = listsnowtam.get(position);
+
+        BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+                = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_before:
+                        Intent a = new Intent( context,firstactivity.class);
+                        context.startActivity(a);
+                        return true;
+
+                    case R.id.navigation_decode:
+                        Intent intent = new Intent(context,decodagesnowtam.class);
+                        //   intent.putExtra("code1", airport1);
+                        intent.putExtra("airport", snowtamm.getName());
+                        context.startActivity(intent);
+                        return true;
+                    case R.id.navigation_settings:
+                        return true;
+                }
+                return false;
+            }
+        };
+
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.slide_layout, container, false);
         ImageView avion = (ImageView) view.findViewById(R.id.avionImageView);
@@ -59,8 +90,11 @@ return view==(RelativeLayout) o;    }
         a.setMovementMethod(new ScrollingMovementMethod());
        // avion.setImageResource(slide_images[position]);
 
-         final snowtam snowtamm = listsnowtam.get(position);
-            a.setText(snowtamm.getName());
+         if (snowtamm.getName()==null){
+             a.setText("No data available");
+         }else{
+
+            a.setText(snowtamm.getName());}
         container.addView(view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override

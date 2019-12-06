@@ -7,6 +7,7 @@
     tools:context=".decodagesnowtam"
     android:background="@drawable/degradedcolor">
 
+
     <LinearLayout
         android:layout_width="391dp"
 
@@ -19,7 +20,7 @@
         android:orientation="vertical"
         android:paddingLeft="20dp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="4dp">
+        tools:layout_editor_absoluteY="244dp">
 
         <TextView
             android:id="@+id/text"
