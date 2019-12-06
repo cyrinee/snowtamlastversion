@@ -93,28 +93,32 @@ TextView tv;
 
     }
 
-    public static String loadairport(Context context,String code) throws JSONException {
+    public static String loadairport(Context context,String code3) throws JSONException {
        String airport=" " ;
             GsonBuilder builder = new GsonBuilder();
-       // Log.e("App", "Sucecodecessssssssssssssssssssssssss:" + code );
+       // Log.e("App", "Sucecodecessssssssssssssssssssssssss:" + code3 );
         Gson gson = builder.create();
             JSONArray array = new JSONArray(loadJSONFromAsset(context, "airport.json"));
+            int j=0;
+
             for(int i=0;i<array.length();i++) {
                 JSONObject jsonObject = array.getJSONObject(i);
                 String codee = jsonObject.getString("ICAO");
               // Log.e("App", "decodagesnowtam" + codee );
-               // Log.e("Avfffffffffffpp", "code" + code );
-                if (code.compareTo(codee) == 0) {
+               // Log.e("Avfffffffffffpp", "code" + code3 );
+
+                if (code3.equals(codee)) {
                      airport = jsonObject.getString("Name");
-                   //Log.e("App", "hiiii: " + airport );
+
+                   Log.e("App", "airport: " + airport );
                 }
-                System.out.println("hellooooooo"+ code.equals(codee));
+                //System.out.println("hellooooooo"+ code.equals(codee));
 
 
             }
         StringBuilder sb = new StringBuilder("A. ");
 
-        sb.append(code );
+        sb.append(code3 );
         sb.append(" " +airport);
         String str = sb.toString();
             
@@ -153,15 +157,19 @@ TextView tv;
 
             //a.setText(snowtamm.getName());
 
-            Log.e("App", "aa:" + bb );}
+           // Log.e("App", "aa:" + bb );
+            }
         return bb;
 
     }
 
     public static String parsedate(String code) throws ParseException {
+        Log.e("App", "ff " + code );
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMddHHmm");
         Date date = dateFormat.parse(code);
+        Log.e("App", "icao " + date );
+
         StringBuilder sb = new StringBuilder("B. ");
         sb.append( date);
         String str = sb.toString();

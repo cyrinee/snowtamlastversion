@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.user.snowtam.MapsOrientation;
 import com.example.user.snowtam.R;
 import com.example.user.snowtam.decodagesnowtam;
 import com.example.user.snowtam.decodeactivitytwo;
@@ -71,7 +72,7 @@ return view==(RelativeLayout) o;    }
                         return true;
 
                     case R.id.navigation_decode:
-                        Intent intent = new Intent(context,decodagesnowtam.class);
+                        Intent intent = new Intent(context,MapsOrientation.class);
                         //   intent.putExtra("code1", airport1);
                         intent.putExtra("airport", snowtamm.getName());
                         context.startActivity(intent);
