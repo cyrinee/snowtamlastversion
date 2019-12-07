@@ -2,12 +2,11 @@ package com.example.user.snowtam.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerAdapter;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.viewpager.widget.PagerAdapter;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +19,6 @@ import android.widget.TextView;
 import com.example.user.snowtam.MapsOrientation;
 import com.example.user.snowtam.R;
 import com.example.user.snowtam.decodagesnowtam;
-import com.example.user.snowtam.decodeactivitytwo;
 import com.example.user.snowtam.firstactivity;
 import com.example.user.snowtam.snowtam;
 

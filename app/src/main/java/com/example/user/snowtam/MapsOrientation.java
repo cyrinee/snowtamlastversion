@@ -2,7 +2,7 @@ package com.example.user.snowtam;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -17,13 +17,28 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 
+import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.annotations.MarkerOptions;
+import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.maps.MapView;
+import com.mapbox.mapboxsdk.maps.MapboxMap;
+import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
+import com.mapbox.mapboxsdk.maps.Style;
+
+import androidx.annotation.NonNull;
+
+
 public class MapsOrientation extends AppCompatActivity {
     String code,icao,latt,lon;
+    //maps
+    private MapView mapView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps_orientation);
-       TextView tv = (TextView) findViewById(R.id.text);
+        //setContentView(R.layout.activity_maps_orientation);
+        TextView tv = (TextView) findViewById(R.id.text);
         code = getIntent().getStringExtra("airport1");
         tv.setText(code);
 
@@ -48,9 +63,81 @@ public class MapsOrientation extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        //Maps
+        Mapbox.getInstance(this, "pk.eyJ1IjoibWVoZGlyY2QiLCJhIjoiY2szdWFsc2lnMDJuazNucWUydXhtZ2NyMCJ9.5psa9-vGNds3U1V-Tj7FCA");
+        setContentView(R.layout.activity_maps_orientation);
+        mapView = findViewById(R.id.mapView);
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(@NonNull MapboxMap mapboxMap) {
+                //Ajouter Marker
 
+                MarkerOptions options = new MarkerOptions();
+
+                options.title("n3el bo l3aalam");
+                options.position(new LatLng(Double.parseDouble(latt),Double.parseDouble(lon)));
+                mapboxMap.addMarker(options);
+
+
+
+
+
+                mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
+                    @Override
+                    public void onStyleLoaded(@NonNull Style style) {
+
+                        // Map is set up and the style has loaded. Now you can add data or make other map adjustments.
+
+
+                    }
+                });
+            }
+        });
 
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        mapView.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mapView.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mapView.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mapView.onStop();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mapView.onSaveInstanceState(outState);
+    }
+
     public static String getcode(String cc){
         int index2;
         String bb="";
