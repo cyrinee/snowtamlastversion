@@ -1,12 +1,12 @@
 package com.example.user.snowtam;
 
 import android.os.AsyncTask;
-import androidx.annotation.NonNull;
+
+import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.widget.Button;

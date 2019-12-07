@@ -2,9 +2,9 @@ package com.example.user.snowtam.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+
 import androidx.annotation.NonNull;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.viewpager.widget.PagerAdapter;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;

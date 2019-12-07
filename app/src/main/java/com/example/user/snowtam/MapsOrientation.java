@@ -2,8 +2,9 @@ package com.example.user.snowtam;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -17,15 +18,13 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.geometry.LatLng;
-import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
 
-import androidx.annotation.NonNull;
 
 
 public class MapsOrientation extends AppCompatActivity {

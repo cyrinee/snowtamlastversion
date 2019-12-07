@@ -2,14 +2,11 @@ package com.example.user.snowtam;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
