@@ -29,7 +29,7 @@ import java.util.Date;
 import java.util.List;
 
 public class decodagesnowtam extends AppCompatActivity {
-String code,code2,date2,runaway,icao,date;
+String code,code2,date2,runaway,icao,date,champsF,F;
 TextView tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +38,15 @@ TextView tv;
          tv = (TextView) findViewById(R.id.text);
 
         code = getIntent().getStringExtra("airport");
+      //Log.e("App", "code " + code );
+
         if(code!=null) {
             icao = getcode(code);
             date=getdate(code);
             runaway=getranaway(code);
+            champsF=getF(code);
+            Log.e("App", "code " + champsF );
+F=parseF(champsF);
             try {
                  date2=parsedate(date);
                // Log.e("App", "date " + date2 );
@@ -51,30 +56,30 @@ TextView tv;
             }
         }
         try {
-             code2=loadairport(this,icao);
-           // Log.e("App", "hyhyhy " + code2 );
-
-          // Log.e("App", "icao " + icao );
-           // Log.e("App", "alo " + code2 );
+             code2=loadairport(this,icao.toString());
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
         tv.setText(code2+ "\n");
         tv.append(date2 + "\n");
-        tv.append(runaway);
+        tv.append(runaway+"\n");
+        tv.append(F );
+
 
 
     }
-    public static String getcode(String cc){
+    public  String getcode(String cc){
         int index2;
         String bb="";
         if(cc != null){
             index2 =  cc.indexOf("B)");
-            bb=cc.substring(3,index2);
+            bb=cc.substring(3,index2-1);
             //a.setText(snowtamm.getName());
+           // Log.e("App", "aa:" + bb );
 
-            Log.e("App", "aa:" + bb );}
+            //Log.e("App", "aa:" + bb.length() );
+            }
       return bb;
     }
     public static String getdate(String cc){
@@ -92,23 +97,172 @@ TextView tv;
         return bb;
 
     }
+    public static String getF(String cc){
+        int index2,index3;
+        String bb="";
+
+        if(cc != null){
+
+            index2 =  cc.indexOf("F)");
+            index3=cc.indexOf("G)");
+            bb=cc.substring(index2+2,index3);
+            //a.setText(snowtamm.getName());
+            // Log.e("App", "aa:" + bb );
+        }
+        return bb;
+
+    }
+    public  static String parseF(String s){
+
+        String b=null,bb="",bbb="";
+        Log.e("App", "aa:" + s.substring(1,2) );
+        Log.e("App", "aa:" + s.substring(3,4) );
+        Log.e("App", "aa:" + s.substring(5,6) );
+        if (s.substring(1,2)=="0"){
+
+            b="CLEAR AND DRY";
+        }
+        else if(s.substring(1,2)=="1") {
+
+             b=  "DAMP";
+        }
+        else if(s.substring(1,2)=="2") {
+            Log.e("App", "aa:" + b );
+
+           b=  "WET or WATER PATCHES";
+        }
+        else if(s.substring(1,2)=="3") {
+
+             b=  "RIME OR FROST COVERED";
+        }
+        else if(s.substring(1,2)=="4") {
+
+             b=  "DRY SNOW";
+        }
+        else if(s.substring(1,2)=="5") {
+
+             b=  "WET  SNOW";
+        }
+        else if(s.substring(1,2)=="6") {
+
+             b=  "SLUSH";
+        }
+        else if(s.substring(1,2)=="7") {
+
+             b=  "ICE";
+        }
+        else if(s.substring(1,2)=="8") {
+
+             b=  "COMPACTED OR ROLLED SNOW";
+        }
+
+        else if(s.substring(1,2)=="9") {
+
+             b=  "FROZEN RUTS";
+        }
+        if (s.substring(3,4)=="0"){
+             bb="CLEAR AND DRY";
+        }
+        else if(s.substring(3,4)=="1") {
+
+             bb=  "DAMP";
+        }
+        else if(s.substring(3,4)=="2") {
+
+             bb=  "WET or WATER PATCHES";
+        }
+        else if(s.substring(3,4)=="3") {
+
+             bb=  "RIME OR FROST COVERED";
+        }
+        else if(s.substring(3,4)=="4") {
+
+             bb=  "DRY SNOW";
+        }
+        else if(s.substring(3,4)=="5") {
+
+             bb=  "WET  SNOW";
+        }
+        else if(s.substring(3,4)=="6") {
+
+             bb=  "SLUSH";
+        }
+        else if(s.substring(3,4)=="7") {
+
+             bb=  "ICE";
+        }
+        else if(s.substring(3,4)=="8") {
+
+             bb=  "COMPACTED OR ROLLED SNOW";
+        }
+
+        else if(s.substring(3,4)=="9") {
+
+             bb=  "FROZEN RUTS";
+        }
+        if (s.substring(5,6)=="0"){
+             bbb="CLEAR AND DRY";
+        }
+        else if(s.substring(5,6)=="1") {
+
+             bbb=  "DAMP";
+        }
+        else if(s.substring(5,6)=="2") {
+
+             bbb=  "WET or WATER PATCHES";
+        }
+        else if(s.substring(5,6)=="3") {
+
+             bbb=  "RIME OR FROST COVERED";
+        }
+        else if(s.substring(5,6)=="4") {
+
+             bbb=  "DRY SNOW";
+        }
+        else if(s.substring(5,6)=="5") {
+
+             bbb=  "WET  SNOW";
+        }
+        else if(s.substring(5,6)=="6") {
+
+             bbb=  "SLUSH";
+        }
+        else if(s.substring(5,6)=="7") {
+
+             bbb=  "ICE";
+        }
+        else if(s.substring(5,6)=="8") {
+
+             bbb=  "COMPACTED OR ROLLED SNOW";
+        }
+
+        else if(s.substring(5,6)=="9") {
+
+             bbb=  "FROZEN RUTS";
+        }
+
+        String str="F. "+ b+ "/"+bb+"/"+bbb;
+
+        return str;
+
+    }
 
     public static String loadairport(Context context,String code3) throws JSONException {
        String airport=" " ;
-            GsonBuilder builder = new GsonBuilder();
-       // Log.e("App", "Sucecodecessssssssssssssssssssssssss:" + code3 );
-        Gson gson = builder.create();
+           // GsonBuilder builder = new GsonBuilder();
+       //Log.e("App", "Sucecodecessssssssssssssssssssssssss" + code3 );
+      //  Gson gson = builder.create();
             JSONArray array = new JSONArray(loadJSONFromAsset(context, "airport.json"));
             int j=0;
 
             for(int i=0;i<array.length();i++) {
-                JSONObject jsonObject = array.getJSONObject(i);
-                String codee = jsonObject.getString("ICAO");
-              // Log.e("App", "decodagesnowtam" + codee );
+                JSONObject J = array.getJSONObject(i);
+                 String codee =  J.getString("ICAO");
+             // Log.e("App", "decodagesnowtam" + codee.length() );
                // Log.e("Avfffffffffffpp", "code" + code3 );
 
-                if (code3.equals(codee)) {
-                     airport = jsonObject.getString("Name");
+                if (codee.equals(code3)) {
+                     airport = J.getString("Name");
 
                    Log.e("App", "airport: " + airport );
                 }
@@ -164,11 +318,11 @@ TextView tv;
     }
 
     public static String parsedate(String code) throws ParseException {
-        Log.e("App", "ff " + code );
+        //Log.e("App", "ff " + code );
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMddHHmm");
         Date date = dateFormat.parse(code);
-        Log.e("App", "icao " + date );
+      //  Log.e("App", "icao " + date );
 
         StringBuilder sb = new StringBuilder("B. ");
         sb.append( date);

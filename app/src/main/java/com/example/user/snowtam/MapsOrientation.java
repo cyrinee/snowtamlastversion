@@ -25,13 +25,10 @@ public class MapsOrientation extends AppCompatActivity {
         setContentView(R.layout.activity_maps_orientation);
        TextView tv = (TextView) findViewById(R.id.text);
         code = getIntent().getStringExtra("airport1");
-        tv.setText(code);
-
-
-
+     //   tv.setText(code);
        // code = getIntent().getStringExtra("airport");
             icao = getcode(code);
-        Log.e("App", "decodagesnowtam" + icao );
+       // Log.e("App", "decodagesnowtam" + icao );
 
 
         try {
@@ -56,44 +53,45 @@ public class MapsOrientation extends AppCompatActivity {
         String bb="";
         if(cc != null){
             index2 =  cc.indexOf("B)");
-            bb=cc.substring(3,index2);
+            bb=cc.substring(3,index2-1);
             //a.setText(snowtamm.getName());
 
-            Log.e("App", "aa:" + bb );}
+          //  Log.e("App", "aa:" + bb );
+        }
         return bb;
     }
 
 
     public static String loadlongitude(Context context,String code3) throws JSONException {
-        String airport=" " ;
-        GsonBuilder builder = new GsonBuilder();
+        String longg=" " ;
+
         // Log.e("App", "Sucecodecessssssssssssssssssssssssss:" + code3 );
-        Gson gson = builder.create();
         JSONArray array = new JSONArray(loadJSONFromAsset(context, "airport.json"));
         int j=0;
 
         for(int i=0;i<array.length();i++) {
             JSONObject jsonObject = array.getJSONObject(i);
             String codee = jsonObject.getString("ICAO");
+            longg = jsonObject.getString("Longitude");
+
             // Log.e("App", "decodagesnowtam" + codee );
-            // Log.e("Avfffffffffffpp", "code" + code3 );
+            // Log.e("Avfffffffffffpp", "gfhgdhjdgggdg" + airport );
 
             if (code3.equals(codee)) {
-                airport = jsonObject.getString("Longitude");
+                longg = jsonObject.getString("Longitude");
 
-                Log.e("App", "airport: " + airport );
+               // Log.e("App", "long: " + longg );
             }
-            //System.out.println("hellooooooo"+ code.equals(codee));
 
 
         }
 
 
-        return airport;
+        return longg;
 
     }
     public static String loadlattitude(Context context,String code3) throws JSONException {
-        String airport=" " ;
+        String latt=" " ;
         GsonBuilder builder = new GsonBuilder();
         // Log.e("App", "Sucecodecessssssssssssssssssssssssss:" + code3 );
         Gson gson = builder.create();
@@ -103,21 +101,18 @@ public class MapsOrientation extends AppCompatActivity {
         for(int i=0;i<array.length();i++) {
             JSONObject jsonObject = array.getJSONObject(i);
             String codee = jsonObject.getString("ICAO");
-            // Log.e("App", "decodagesnowtam" + codee );
-            // Log.e("Avfffffffffffpp", "code" + code3 );
+
 
             if (code3.equals(codee)) {
-                airport = jsonObject.getString("Latitude");
+                latt = jsonObject.getString("Latitude");
 
-                Log.e("App", "airport: " + airport );
             }
-            //System.out.println("hellooooooo"+ code.equals(codee));
 
 
         }
 
 
-        return airport;
+        return latt;
 
     }
 
