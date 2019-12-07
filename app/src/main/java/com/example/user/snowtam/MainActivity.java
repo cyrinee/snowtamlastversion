@@ -1,9 +1,9 @@
 package com.example.user.snowtam;
 
 import android.os.Bundle;
-import android.support.v4.view.GestureDetectorCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.view.GestureDetectorCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;

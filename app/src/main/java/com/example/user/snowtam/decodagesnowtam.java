@@ -1,19 +1,13 @@
 package com.example.user.snowtam;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.AssetManager;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.user.snowtam.Adapters.SliderAdapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -26,7 +20,6 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 public class decodagesnowtam extends AppCompatActivity {
 String code,code2,date2,runaway,icao,date,champsF,F;
