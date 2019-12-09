@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 
+import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -60,7 +61,8 @@ public class MapsOrientation extends AppCompatActivity {
             e.printStackTrace();
         }
         //Maps
-        Mapbox.getInstance(this, "pk.eyJ1IjoibWVoZGlyY2QiLCJhIjoiY2szdWFsc2lnMDJuazNucWUydXhtZ2NyMCJ9.5psa9-vGNds3U1V-Tj7FCA");
+        Mapbox.getInstance(this,"pk.eyJ1IjoibWVoZGlyY2QiLCJhIjoiY2szdWFsc2lnMDJuazNucWUydXhtZ2NyMCJ9.5psa9-vGNds3U1V-Tj7FCA");
+        //Mapbox.getInstance(this, "pk.eyJ1IjoibWVoZGlyY2QiLCJhIjoiY2szdWFsc2lnMDJuazNucWUydXhtZ2NyMCJ9.5psa9-vGNds3U1V-Tj7FCA");
         setContentView(R.layout.activity_maps_orientation);
         mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);

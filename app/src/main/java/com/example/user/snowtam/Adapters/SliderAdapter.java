@@ -1,9 +1,13 @@
 package com.example.user.snowtam.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
+
+import com.example.user.snowtam.changeLanguage;
+import com.example.user.snowtam.decodeactivitytwo;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.viewpager.widget.PagerAdapter;
 import android.text.method.ScrollingMovementMethod;
@@ -90,6 +94,10 @@ return view==(RelativeLayout) o;    }
                         context.startActivity(intent);
                         return true;
                     case R.id.navigation_settings:
+
+                        //Intent b = new Intent(context,changeLanguage.class);
+                        Intent b = new Intent(context, changeLanguage.class);
+                        context.startActivity(b);
                         return true;
                 }
                 return false;
@@ -113,6 +121,8 @@ return view==(RelativeLayout) o;    }
         container.removeView((RelativeLayout)object);
 
     }
+
+
 
 
 

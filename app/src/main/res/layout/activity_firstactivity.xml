@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_weight=".60"
-                    android:text="Airport 1"
+                    android:text="@string/Airport_1"
                     android:textColor="#fff"/>
 
 
@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_weight=".60"
-                    android:text="Airport 2"
+                    android:text="@string/Airport_2"
                     android:textColor="#fff"/>
 
 
@@ -96,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_weight=".60"
-                    android:text="Airport 3"
+                    android:text="@string/Airport_3"
                     android:textColor="#fff"/>
 
 
@@ -121,7 +121,7 @@
                 android:layout_height="wrap_content"
 
                 android:background="@color/colorAccent"
-                android:text="Search"
+                android:text="@string/Search"
                 android:textColor="#ffff" />
 
             <!-- how to build Standard login pagein android using Android Studio-->

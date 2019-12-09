@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Home">Accueil</string>
+
+    <string name="Maps">Carte</string>
+    <string name="Language">Langue</string>
+    <string name="Airport_1">Aeroport 1</string>
+    <string name="Airport_2">Aeroport 2</string>
+    <string name="Airport_3">Aeroport 3</string>
+    <string name="Search">Chercher</string>
+</resources>

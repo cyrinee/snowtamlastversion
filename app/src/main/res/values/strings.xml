@@ -1,7 +1,12 @@
 <resources>
-    <string name="app_name">snowtam</string>
-    <string name="title_activity_splash">splash</string>
+    <string name="app_name" translatable="false">snowtam</string>
+    <string name="title_activity_splash" translatable="false">splash</string>
     <string name="Home">Home</string>
+
     <string name="Maps">Maps</string>
     <string name="Language">Language</string>
+    <string name="Airport_1">Airport 1</string>
+    <string name="Airport_2">Airport 2</string>
+    <string name="Airport_3">Airport 3</string>
+    <string name="Search">Search</string>
 </resources>
