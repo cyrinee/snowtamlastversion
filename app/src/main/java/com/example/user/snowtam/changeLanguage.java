@@ -1,5 +1,6 @@
 package com.example.user.snowtam;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +22,9 @@ public class changeLanguage extends AppCompatActivity {
         loadLocale();
         setContentView(R.layout.activity_change_language);
 
+
+
+
         Button b= findViewById(R.id.buttonLangue);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +37,7 @@ public class changeLanguage extends AppCompatActivity {
     private void showChangeLanguage(){
         final String[] list={"French", "English"};
         AlertDialog.Builder mBuilder= new AlertDialog.Builder(changeLanguage.this);
-        mBuilder.setTitle("Choose Language............");
+        mBuilder.setTitle("Choose Language,Please............");
         mBuilder.setSingleChoiceItems(list, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -41,7 +45,7 @@ public class changeLanguage extends AppCompatActivity {
                      setLocale("fr");
                      recreate();
                  }
-                 else {
+                 else if(which==1) {
                      setLocale("en");
                      recreate();
                  }
